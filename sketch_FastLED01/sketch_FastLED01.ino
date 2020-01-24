@@ -53,10 +53,10 @@ class RoundRobin : public RunningLine<T, N>
     }
 };
 
-CRGB init_array[] = { CRGB(255, 0, 0), CRGB(0, 255, 0), CRGB(0, 0, 255), 
-                CRGB(255, 255, 0), CRGB(255, 0,  255), CRGB(0,  255, 255),
-                CRGB(255, 255,  255), CRGB(0, 0, 0), CRGB(255, 0, 0), 
-                CRGB(0, 255, 0)};
+CRGB init_array[] = { CRGB(128, 0, 0), CRGB(128, 64, 0), CRGB(128, 128, 0), 
+                CRGB(64, 128, 64), CRGB(0, 128,  128), CRGB(0,  64, 128),
+                CRGB(64, 0,  128), CRGB(128, 0, 64), CRGB(128, 0, 0), 
+                CRGB(128, 0, 0)};
 
 #define arraySize(a) (sizeof(a) / sizeof(*a))
 #define NUM_LEDS arraySize(init_array)
