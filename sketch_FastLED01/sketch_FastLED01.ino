@@ -66,6 +66,25 @@ class RoundRobin : public RunningLine<T, N>
     }
 };
 
+template<int BPIN>
+class Btn {
+public:
+  Btn() : was_high(false) {}
+
+  bool check() {
+    if (digitalRead(BUTTON_PIN) == HIGH) {
+      was_high = true;
+      return false;
+    } else {
+      bool pressed = was_high;
+      was_high = false;
+      return pressed;
+    }
+  }
+private:
+  bool was_high;
+};
+
 const CRGB init_array[] = { CRGB(128, 0, 0), CRGB(128, 64, 0), CRGB(128, 128, 0), 
                 CRGB(64, 128, 64), CRGB(0, 128,  128), CRGB(0,  64, 128),
                 CRGB(64, 0,  128), CRGB(128, 0, 64), CRGB(128, 0, 0), 
@@ -125,6 +144,7 @@ const RR_LED leds_rr_init[] = {leds,
 
 bool fwd = true;
 size_t cur_arr = 0;
+Btn<BUTTON_PIN> btn;
 
 void setup() { 
     FastLED.addLeds<NEOPIXEL, LED_PIN>(const_cast<struct CRGB*>(leds_rr_init[cur_arr].data()), NUM_LEDS);
@@ -132,7 +152,7 @@ void setup() {
 }
 
 void loop() {
-  if (digitalRead(BUTTON_PIN) == HIGH)
+  if (btn.check())
   {
     if(!fwd) {
       cur_arr = (cur_arr + 1) % arraySize(leds_rr_init);
