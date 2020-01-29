@@ -4,6 +4,7 @@
 #define LED_STEP 5
 #define LED_PIN 6
 #define BUTTON_PIN 3
+#define NUM_LEDS (2*4*4)
 
 template<typename T, int N>
 class RunningLine
@@ -47,9 +48,9 @@ template<typename T, int N>
 class RoundRobin : public RunningLine<T, N>
 {
   public:
-    RoundRobin(const T* init_v) : RunningLine<T, N>(init_v[0])
+    RoundRobin(const T* init_v, const size_t sz) : RunningLine<T, N>(init_v[0])
     {
-      for (size_t i = 0 ; i < N ; ++i)
+      for (size_t i = 0, cnt = 0 ; cnt < N ; ++cnt, i = (i + 1) % sz)
       {
         RunningLine<T, N>::push(init_v[i]);
       }
@@ -91,11 +92,15 @@ const CRGB init_array[] = { CRGB(128, 0, 0), CRGB(128, 64, 0), CRGB(128, 128, 0)
                 CRGB(0, 0, 0) };
 
 #define arraySize(a) (sizeof(a) / sizeof(*a))
-#define NUM_LEDS arraySize(init_array)
+
+#define ARRAY_W_SZ(a) a, arraySize(a)
 
 typedef RoundRobin<CRGB, NUM_LEDS> RR_LED;
 
-RR_LED leds(init_array);
+#define RR_LED_DEF(nm, a) RR_LED nm(ARRAY_W_SZ(a))
+#define RR_LED_INI(a) RR_LED(ARRAY_W_SZ(a))
+
+RR_LED_DEF(leds, init_array);
 
 CRGB init_red[NUM_LEDS] = {CRGB(4, 0, 0),  CRGB(16, 0, 0), CRGB(32, 0, 0),
                            CRGB(64, 0, 0), CRGB(96, 0, 0), CRGB(128, 0, 0),
@@ -136,8 +141,8 @@ CRGB init_magenta[NUM_LEDS] = {CRGB(4, 0, 4),  CRGB(16, 0, 16), CRGB(32, 0, 32),
 
 
 const RR_LED leds_rr_init[] = {leds, 
-  RR_LED(init_red), RR_LED(init_green), RR_LED(init_blue),
-  RR_LED(init_yellow), RR_LED(init_cyan), RR_LED(init_magenta),
+  RR_LED_INI(init_red), RR_LED_INI(init_green), RR_LED_INI(init_blue),
+  RR_LED_INI(init_yellow), RR_LED_INI(init_cyan), RR_LED_INI(init_magenta),
 };
 
 //RoundRobin<RR_LED, arraySize(leds_rr_init)> leds_rr(leds_rr_init);
