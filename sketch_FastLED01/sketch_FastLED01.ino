@@ -73,7 +73,7 @@ public:
   Btn() : was_high(false) {}
 
   bool check() {
-    if (digitalRead(BUTTON_PIN) == HIGH) {
+    if (digitalRead(BPIN) == HIGH) {
       was_high = true;
       return false;
     } else {
@@ -140,9 +140,9 @@ CRGB init_magenta[NUM_LEDS] = {CRGB(4, 0, 4),  CRGB(16, 0, 16), CRGB(32, 0, 32),
 };
 
 
-const RR_LED leds_rr_init[] = {leds, 
-  RR_LED_INI(init_red), RR_LED_INI(init_green), RR_LED_INI(init_blue),
-  RR_LED_INI(init_yellow), RR_LED_INI(init_cyan), RR_LED_INI(init_magenta),
+RR_LED leds_rr_init[] = {leds, 
+                        RR_LED_INI(init_red),    RR_LED_INI(init_green), RR_LED_INI(init_blue),
+                        RR_LED_INI(init_yellow), RR_LED_INI(init_cyan),  RR_LED_INI(init_magenta),
 };
 
 //RoundRobin<RR_LED, arraySize(leds_rr_init)> leds_rr(leds_rr_init);
