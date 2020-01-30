@@ -102,41 +102,53 @@ typedef RoundRobin<CRGB, NUM_LEDS> RR_LED;
 
 RR_LED_DEF(leds, init_array);
 
-CRGB init_red[NUM_LEDS] = {CRGB(4, 0, 0),  CRGB(16, 0, 0), CRGB(32, 0, 0),
+CRGB init_red[] = {CRGB(4, 0, 0),  CRGB(16, 0, 0), CRGB(32, 0, 0),
                            CRGB(64, 0, 0), CRGB(96, 0, 0), CRGB(128, 0, 0),
                            CRGB(96, 0, 0), CRGB(64, 0, 0), CRGB(32, 0, 0),
-                           CRGB(16, 0, 0)
+                           CRGB(16, 0, 0),
+                   CRGB::Black, CRGB::Black, CRGB::Black, CRGB::Black, 
+                   CRGB::Black, CRGB::Black, CRGB::Black, CRGB::Black, 
 };
 
-CRGB init_green[NUM_LEDS] = {CRGB(0, 4, 0),  CRGB(0, 16, 0), CRGB(0, 32, 0),
+CRGB init_green[] = {CRGB(0, 4, 0),  CRGB(0, 16, 0), CRGB(0, 32, 0),
                            CRGB(0, 64, 0), CRGB(0, 96, 0), CRGB(0, 128, 0),
                            CRGB(0, 96, 0), CRGB(0, 64, 0), CRGB(0, 32, 0),
-                           CRGB(0, 16, 0)
+                           CRGB(0, 16, 0),
+                   CRGB::Black, CRGB::Black, CRGB::Black, CRGB::Black, 
+                   CRGB::Black, CRGB::Black, CRGB::Black, CRGB::Black, 
 };
 
-CRGB init_blue[NUM_LEDS] = {CRGB(0, 0, 4),  CRGB(0, 0, 16), CRGB(0, 0, 32),
+CRGB init_blue[] = {CRGB(0, 0, 4),  CRGB(0, 0, 16), CRGB(0, 0, 32),
                            CRGB(0, 0, 64), CRGB(0, 0, 96), CRGB(0, 0, 128),
                            CRGB(0, 0, 96), CRGB(0, 0, 64), CRGB(0, 0, 32),
-                           CRGB(0, 0, 16)
+                           CRGB(0, 0, 16),
+                   CRGB::Black, CRGB::Black, CRGB::Black, CRGB::Black, 
+                   CRGB::Black, CRGB::Black, CRGB::Black, CRGB::Black, 
 };
 
 
-CRGB init_yellow[NUM_LEDS] = {CRGB(4, 4, 0),  CRGB(16, 16, 0), CRGB(32, 32, 0),
+CRGB init_yellow[] = {CRGB(4, 4, 0),  CRGB(16, 16, 0), CRGB(32, 32, 0),
                            CRGB(64, 64, 0), CRGB(96, 96, 0), CRGB(128, 128, 0),
                            CRGB(96, 96, 0), CRGB(64, 64, 0), CRGB(32, 32, 0),
-                           CRGB(16, 16, 0)
+                           CRGB(16, 16, 0),
+                   CRGB::Black, CRGB::Black, CRGB::Black, CRGB::Black, 
+                   CRGB::Black, CRGB::Black, CRGB::Black, CRGB::Black, 
 };
 
-CRGB init_cyan[NUM_LEDS] = {CRGB(0, 4, 4),  CRGB(0, 16, 16), CRGB(0, 32, 32),
+CRGB init_cyan[] = {CRGB(0, 4, 4),  CRGB(0, 16, 16), CRGB(0, 32, 32),
                            CRGB(0, 64, 64), CRGB(0, 96, 96), CRGB(0, 128, 128),
                            CRGB(0, 96, 96), CRGB(0, 64, 64), CRGB(0, 32, 32),
-                           CRGB(0, 16, 16)
+                           CRGB(0, 16, 16),
+                   CRGB::Black, CRGB::Black, CRGB::Black, CRGB::Black, 
+                   CRGB::Black, CRGB::Black, CRGB::Black, CRGB::Black, 
 };
 
-CRGB init_magenta[NUM_LEDS] = {CRGB(4, 0, 4),  CRGB(16, 0, 16), CRGB(32, 0, 32),
+CRGB init_magenta[] = {CRGB(4, 0, 4),  CRGB(16, 0, 16), CRGB(32, 0, 32),
                            CRGB(64, 0, 64), CRGB(96, 0, 96), CRGB(128, 0, 128),
                            CRGB(96, 0, 96), CRGB(64, 0, 64), CRGB(32, 0, 32),
-                           CRGB(16, 0, 16)
+                           CRGB(16, 0, 16),
+                   CRGB::Black, CRGB::Black, CRGB::Black, CRGB::Black, 
+                   CRGB::Black, CRGB::Black, CRGB::Black, CRGB::Black, 
 };
 
 
