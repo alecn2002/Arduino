@@ -50,9 +50,9 @@ class RoundRobin : public RunningLine<T, N>
   public:
     RoundRobin(const T* init_v, const size_t sz) : RunningLine<T, N>(init_v[0])
     {
-      for (size_t i = 0, cnt = 0 ; cnt < N ; ++cnt, i = (i + 1) % sz)
+      for (size_t cnt = 0 ; cnt < N ; ++cnt)
       {
-        RunningLine<T, N>::push(init_v[i]);
+        RunningLine<T, N>::push(init_v[cnt % sz]);
       }
     }
 
